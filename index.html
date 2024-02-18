@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <center>
+    <link rel="stylesheet" href="./style.css"/>
+
+    <header>
+        <ul>
+         <li><a class="links" href="#user"><button class="signbutton" type="button">Sign in</button></a></li>
+           <li><a href="#grid"><img class="grid" src="assets\Material_icons-01-11-512.webp" title="Google apps"></a></li>
+          <li><a href="#images">Images</a></li>
+          <li><a href="#gmail">Gmail</a></li>
+          </ul>  
+    </header>
+    <div class="logo">
+      <img alt="Google" src="assets\googlelogo_color_272x92dp.png">
+    </div>
+    <div class="bar">
+      <input class="searchbar" type="text" title="Search" id="search">
+      <a href="#"> <img class="voice" src="assets\Google_mic.svg.webp" title="Search by Voice"></a>
+    </div>
+    <div class="buttons">
+      <button class="button" type="button" onclick="validate()">Google Search</button>
+      <button class="button" type="button">I'm Feeling Lucky</button>
+    </div>
+    
+    <script>
+      var input = document.getElementById("search");
+      input.addEventListener("keydown", function (e) {
+       if (e.key === "Enter") {  
+         validate();
+       }});
+   
+      function validate() {
+       var text = document.getElementById("search").value;
+       var t_array = text.split(" ");
+       const tags = ["google","youtube","docs","sheets","slides","scholar"]
+       const link = ["http://google.com/search?q=","http://youtube.com/results?search_query=","https://docs.google.com/document/?q=","https://docs.google.com/spreadsheets/?q=","https://docs.google.com/presentation/?q=","https://scholar.google.com/scholar?q="]
+       if (tags.includes(t_array[0].toLowerCase())){
+        window.location.href= link[tags.indexOf(t_array[0].toLowerCase())] + t_array.slice(1).join('+');
+       }
+       else{
+        window.location.href= link[0] + t_array.join('+');
+       }
+    }
+    </script>
+    </center>
+    </body>
+</html>
